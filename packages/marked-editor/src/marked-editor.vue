@@ -1,6 +1,8 @@
 <template>
-    <div class='marked-editor'>
-        marked-editor
+    <div class='marked marked-editor'
+         ref="markedEditor">
+        <header class='marked-header'></header>
+        <section class='marked-content'></section>
     </div>
 </template>
 
@@ -11,4 +13,5 @@ export default {
 </script>
 
 <style lang='scss' rel='stylesheet/scss'>
+@import "./marked.scss";
 </style>

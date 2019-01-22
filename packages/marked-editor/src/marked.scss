@@ -1,0 +1,24 @@
+$min-height: 400px;
+$header-height: 60px;
+
+$border-color: #000000;
+$border: 1px solid $border-color;
+$header-background-color: #f1f1f1;
+
+@mixin content-padding($t,$l) {
+    padding: $t $l;
+    box-sizing: border-box;
+}
+
+.marked{
+    width: 100%;
+    min-height: $min-height;
+    border:$border;
+    &-header{
+        width: 100%;
+        height: $header-height;
+        background: $header-background-color;
+        border-bottom: $border;
+        @include content-padding(0,15px);
+    }
+}
