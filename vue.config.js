@@ -11,8 +11,9 @@ module.exports = {
     chainWebpack: config => {
         config.module
             .rule('js')
+            .test(/\.js$/)
             .include
-            .add('packages')
+            .add(/packages/)
             .end()
             .use('babel')
             .loader('babel-loader')
