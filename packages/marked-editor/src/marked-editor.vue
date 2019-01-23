@@ -5,7 +5,8 @@
             <ul class='marked-tools-left'>
                 <template v-for="tool in toolsLeft">
                     <li :key="tool.key"
-                        :name="tool.label">
+                        :name="tool.label"
+                        v-if="tools[tool.key]">
                         <span v-if="tool.icon === 'title'"
                               class="icon">{{ tool.key }}</span>
                         <i v-else
@@ -17,7 +18,8 @@
             <ul class='marked-tools-right'>
                 <template v-for="tool in toolsRight">
                     <li :key="tool.key"
-                        :name="tool.label">
+                        :name="tool.label"
+                        v-if="tools[tool.key]">
                         <i class="fa"
                            :class="tool.icon"></i>
                     </li>

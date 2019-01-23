@@ -2,7 +2,7 @@ $min-width: 1000px;
 $min-height: 600px;
 $header-height: 60px;
 $tools-icon-size: 18px;
-$tools-margin-left: 15px;
+$tools-margin-right: 15px;
 
 $border-color: #EAEBED;
 $border: 1px solid $border-color;
@@ -35,7 +35,7 @@ $tools-icon-color:#525252;
             font-size: $tools-icon-size;
 
             li {
-                margin-left: $tools-margin-left;
+                margin-right: $tools-margin-right;
                 cursor: pointer;
                 color: $tools-icon-color;
 

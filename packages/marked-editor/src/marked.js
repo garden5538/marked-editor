@@ -1,7 +1,4 @@
-import {
-    toolsLeft,
-    toolsRight
-} from './tools.config';
+import toolsConfig from './tools.config';
 
 import 'font-awesome/scss/font-awesome.scss';
 
@@ -17,11 +14,9 @@ export default {
     },
     data() {
         return {
-            toolsLeft: toolsLeft,
-            toolsRight: toolsRight,
-            allTools: { // 显示隐藏的工具栏
-                strong: true
-            }
+            toolsLeft: toolsConfig.toolsLeft,
+            toolsRight: toolsConfig.toolsRight,
+            allTools: toolsConfig.showTools
         };
     },
     computed: {
