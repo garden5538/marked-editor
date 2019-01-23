@@ -13,7 +13,7 @@ marked.setOptions({
     pedantic: false,
     sanitize: true,
     smartLists: true,
-    highlight: function(code) {
+    highlight: function (code) {
         return hljs.highlightAuto(code).value;
     }
 });
@@ -23,9 +23,13 @@ export default {
     props: {
         toolBars: { // 工具栏配置
             type: Object,
-            default: function() {
+            default: function () {
                 return {};
             }
+        },
+        showNumber: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -36,6 +40,7 @@ export default {
             showPreview: true,
             showFullPreview: false,
             isFullScreen: false,
+            numberLength: 1,
             markText: '', // 输入框内容
             previewHtml: '' // 预览内容
         };
@@ -50,6 +55,7 @@ export default {
             this.previewHtml = marked(val, {
                 sanitize: true
             });
+            this.numberLength = val.split('\n').length;
         }
     },
     methods: {
@@ -71,6 +77,9 @@ export default {
         toggleMarkdown() {
             this.showFullPreview = !this.showFullPreview;
             this.showPreview = true;
+        },
+        toggleFullScreen() {
+            this.isFullScreen = !this.isFullScreen;
         }
     }
 };

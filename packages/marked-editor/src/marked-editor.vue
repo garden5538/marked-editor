@@ -1,5 +1,5 @@
 <template>
-    <div class='marked marked-editor'
+    <div :class="isFullScreen?'fullScreen marked':'marked'"
          ref="markedEditor">
         <header class='marked-tools'>
             <ul class='marked-tools-left'>
@@ -17,14 +17,22 @@
                 </template>
             </ul>
             <ul class='marked-tools-right'>
-                <li class="fa fa-eye" @click="togglePreview"></li>
-                <li class="fa fa-desktop" @click="toggleMarkdown"></li>
-                <li class="fa fa-arrows-alt"></li>
+                <li class="fa fa-eye"
+                    @click="togglePreview"></li>
+                <li class="fa fa-desktop"
+                    @click="toggleMarkdown"></li>
+                <li class="fa fa-arrows-alt"
+                    @click="toggleFullScreen"></li>
             </ul>
         </header>
         <section class='marked-content'>
             <div class="marked-content-text"
                  v-show="!showFullPreview">
+                <ul v-if="showNumber"
+                    class="sider-number">
+                    <li v-for="(item,index) in numberLength"
+                        :key="index">{{ index + 1 }}</li>
+                </ul>
                 <textarea v-model="markText"
                           ref="textarea"
                           @keydown.tab.stop="onTab"></textarea>
@@ -44,5 +52,5 @@ export default marked;
 <style lang='scss' rel='stylesheet/scss'>
 @import "./styles/github.scss";
 @import "./styles/oneDark.scss";
-@import "./styles/marked.scss";
+@import "./styles/index.scss";
 </style>
