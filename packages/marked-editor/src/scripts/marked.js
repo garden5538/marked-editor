@@ -33,6 +33,9 @@ export default {
             toolsLeft: toolsConfig.toolsLeft,
             toolsRight: toolsConfig.toolsRight,
             allTools: toolsConfig.showTools,
+            showPreview: true,
+            showFullPreview: false,
+            isFullScreen: false,
             markText: '', // 输入框内容
             previewHtml: '' // 预览内容
         };
@@ -50,16 +53,24 @@ export default {
         }
     },
     methods: {
-        insertContent(text) {
+        insertContent(text) { // 插入文本
             this.markText += text;
         },
-        onTab(e) {
+        onTab(e) { // tab按键
             this.insertContent('    ', this);
             if (e.preventDefault) {
                 e.preventDefault();
             } else {
                 e.returnValue = false;
             }
+        },
+        togglePreview() {
+            this.showPreview = !this.showPreview;
+            this.showFullPreview = false;
+        },
+        toggleMarkdown() {
+            this.showFullPreview = !this.showFullPreview;
+            this.showPreview = true;
         }
     }
 };

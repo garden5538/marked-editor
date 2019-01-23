@@ -117,7 +117,7 @@ const toolsLeft = [{
 const toolsRight = [{
     label: '显示预览',
     key: 'showPreview',
-    icon: 'fa-eye-slash',
+    icon: 'fa-eye',
     show: true
 }, {
     label: '预览',
