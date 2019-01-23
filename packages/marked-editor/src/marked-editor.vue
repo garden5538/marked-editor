@@ -6,7 +6,8 @@
                 <template v-for="tool in toolsLeft">
                     <li :key="tool.key"
                         :name="tool.label"
-                        v-if="tools[tool.key]">
+                        v-if="tools[tool.key]"
+                        @click="insertContent(tool.value)">
                         <span v-if="tool.icon === 'title'"
                               class="icon">{{ tool.key }}</span>
                         <i v-else
@@ -28,7 +29,9 @@
         </header>
         <section class='marked-content'>
             <div class="marked-content-text">
-                <textarea v-model="markText"></textarea>
+                <textarea v-model="markText"
+                          ref="textarea"
+                          @keydown.tab.stop="onTab"></textarea>
             </div>
             <div class="marked-content-preview  markdown-body oneDark"
                  v-html="previewHtml"></div>

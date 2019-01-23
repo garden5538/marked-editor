@@ -48,5 +48,18 @@ export default {
                 sanitize: true
             });
         }
+    },
+    methods: {
+        insertContent(text) {
+            this.markText += text;
+        },
+        onTab(e) {
+            this.insertContent('    ', this);
+            if (e.preventDefault) {
+                e.preventDefault();
+            } else {
+                e.returnValue = false;
+            }
+        }
     }
 };

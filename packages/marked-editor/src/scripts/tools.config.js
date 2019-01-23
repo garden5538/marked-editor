@@ -67,7 +67,7 @@ const toolsLeft = [{
 }, {
     label: '无序列表',
     key: 'ul',
-    value: '\n- ',
+    value: '\n+ ',
     icon: 'fa-list-ul',
     show: true
 }, {
