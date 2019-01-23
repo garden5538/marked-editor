@@ -27,17 +27,22 @@
             </ul>
         </header>
         <section class='marked-content'>
-            <div class="marked-content-text"></div>
-            <div class="marke-content-preview"></div>
+            <div class="marked-content-text">
+                <textarea v-model="markText"></textarea>
+            </div>
+            <div class="marked-content-preview  markdown-body oneDark"
+                 v-html="previewHtml"></div>
         </section>
     </div>
 </template>
 
 <script>
-import marked from './marked';
+import marked from './scripts/marked';
 export default marked;
 </script>
 
 <style lang='scss' rel='stylesheet/scss'>
-@import "./marked.scss";
+@import "./styles/github.scss";
+@import "./styles/oneDark.scss";
+@import "./styles/marked.scss";
 </style>

@@ -3,15 +3,29 @@ $min-height: 600px;
 $header-height: 60px;
 $tools-icon-size: 18px;
 $tools-margin-right: 15px;
+$text-mark-size: 16px;
 
 $border-color: #EAEBED;
 $border: 1px solid $border-color;
 $header-background-color: #F9FAFB;
 $tools-icon-color:#525252;
 
+$baseFont: 3em;
+
 @mixin content-padding($t, $l) {
     padding: $t $l;
     box-sizing: border-box;
+}
+
+@mixin line-height {
+    line-height: 30px;
+}
+
+@mixin title-set ($v) {
+    padding-bottom: 0.3em;
+    font-size: $v;
+    border-bottom: 1px solid #eaecef;
+    margin-bottom: 20px;
 }
 
 .marked {
@@ -62,9 +76,24 @@ $tools-icon-color:#525252;
             @include content-padding(10px, 15px);
         }
 
+        div::-webkit-scrollbar {
+            width: 0;
+        }
+
         &-text {
             border-right: $border;
             background: $header-background-color;
+
+            textarea {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                resize: none;
+                outline: none;
+                background: $header-background-color;
+                font-size: $text-mark-size;
+                @include line-height;
+            }
         }
     }
 }
