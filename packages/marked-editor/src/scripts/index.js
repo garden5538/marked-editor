@@ -63,6 +63,7 @@ export default {
             this.markText += text;
             const textarea = this.$refs['textarea'];
             textarea.focus();
+            index;
         },
         onTab(e) { // tab按键
             this.insertContent('    ', this);
@@ -98,6 +99,13 @@ export default {
                 }
             }
         },
-        handleSave() {}
+        handleSave() {
+            let query = {
+                markText: this.markText,
+                previewHtml: this.previewHtml
+            };
+
+            this.$emit('saveMarkdown', query);
+        }
     }
 };

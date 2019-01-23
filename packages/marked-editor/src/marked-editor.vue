@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import marked from './scripts/marked';
+import marked from './scripts/index';
 export default marked;
 </script>
 
