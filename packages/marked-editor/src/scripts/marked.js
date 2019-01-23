@@ -61,6 +61,8 @@ export default {
     methods: {
         insertContent(text) { // 插入文本
             this.markText += text;
+            const textarea = this.$refs['textarea'];
+            textarea.focus();
         },
         onTab(e) { // tab按键
             this.insertContent('    ', this);

@@ -55,7 +55,7 @@ const toolsLeft = [{
 }, {
     label: '分割线',
     key: 'hr',
-    value: '----',
+    value: '----\n',
     icon: 'fa-minus',
     show: true
 }, {
@@ -79,13 +79,13 @@ const toolsLeft = [{
 }, {
     label: '代码块',
     key: 'code',
-    value: '\n``` \n\n ```',
+    value: '\n``` \n\n ```\n',
     icon: 'fa-code',
     show: true
 }, {
     label: '链接',
     key: 'link',
-    value: '[示例](http://baidu.com)',
+    value: '\n[示例](http://baidu.com)',
     icon: 'fa-link',
     show: true
 }, {

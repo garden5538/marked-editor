@@ -1,4 +1,4 @@
-$min-width: 1000px;
+$min-width: 880px;
 $min-height: 600px;
 $header-height: 60px;
 $tools-icon-size: 18px;
@@ -8,6 +8,7 @@ $text-mark-size: 16px;
 $border-color: #EAEBED;
 $border: 1px solid $border-color;
 $header-background-color: #F9FAFB;
+$side-background-color: #FFFAFA;
 $tools-icon-color:#525252;
 
 $baseFont: 3em;
@@ -100,11 +101,12 @@ $baseFont: 3em;
             display: flex;
 
             .sider-number {
-                width: 20px;
+                width: 28px;
                 list-style: none;
                 text-align: center;
                 @include line-height;
                 border-right: $border;
+                background: $side-background-color;
             }
 
             textarea {
@@ -121,7 +123,7 @@ $baseFont: 3em;
         }
 
         &-preview {
-            @include content-padding(0, 10px);
+            @include content-padding(10px, 10px);
         }
     }
 }
