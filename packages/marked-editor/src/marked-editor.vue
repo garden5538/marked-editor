@@ -1,6 +1,8 @@
 <template>
     <div :class="isFullScreen?'fullScreen marked':'marked'"
-         ref="markedEditor">
+         ref="markedEditor"
+         @mouseover="addListener"
+         @mouseout="removeListener">
         <header class='marked-tools'>
             <ul class='marked-tools-left'>
                 <template v-for="tool in toolsLeft">

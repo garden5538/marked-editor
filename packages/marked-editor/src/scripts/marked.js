@@ -13,7 +13,7 @@ marked.setOptions({
     pedantic: false,
     sanitize: true,
     smartLists: true,
-    highlight: function (code) {
+    highlight: function(code) {
         return hljs.highlightAuto(code).value;
     }
 });
@@ -23,7 +23,7 @@ export default {
     props: {
         toolBars: { // 工具栏配置
             type: Object,
-            default: function () {
+            default: function() {
                 return {};
             }
         },
@@ -80,6 +80,22 @@ export default {
         },
         toggleFullScreen() {
             this.isFullScreen = !this.isFullScreen;
-        }
+        },
+        addListener() { // 事件监听，阻止保存
+            this.removeListener();
+            document.addEventListener('keydown', this.listener);
+        },
+        removeListener() {
+            document.removeEventListener('keydown', this.listener);
+        },
+        listener(e) {
+            if (e.keyCode === 83) {
+                if (e.metaKey || e.ctrlKey) {
+                    e.preventDefault();
+                    this.handleSave();
+                }
+            }
+        },
+        handleSave() {}
     }
 };
