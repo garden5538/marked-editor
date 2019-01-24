@@ -1,34 +1,42 @@
-# simple-markdown
+# marked-editor
 
-## Project setup
-```
-yarn install
-```
+## 简介
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+这是一款基于Vue打招的Markdown编辑器；该款编辑器涵盖了markdown编辑器的常用功能，并且支持可配置，可二次开发；
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## 安装
 
-### Run your tests
-```
-yarn run test
-```
+> npm i marked-editor
 
-### Lints and fixes files
-```
-yarn run lint
-```
+## 功能列表
 
-### Run your unit tests
-```
-yarn run test:unit
-```
++ 插入文本
+  - [x] 标题
+  - [x] 粗体
+  - [x] 入斜体
+  - [x] 删除线
+  - [x] 引用
+  - [x] 无序列表
+  - [x] 有序列表
+  - [x] 完成列表
+  - [x] 未完成列表
+  - [x] 代码块
+  - [x] 图片
+  - [x] 链接
+  - [x] 表格
+- 视图切换
+  - [x] 切换预览
+  - [x] 切换全屏
+- 快捷键
+  - [x] ctrl+s 保存
+  - [x] tab 制表符
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 更新说明
+
+> 后续功能持续开发中。。。
+
++ v0.1.1
+  + 增加工具栏的配置
+  + 增加视图的切换
+  + 增加行号的显示
+  + 增加GitHub预览样式
