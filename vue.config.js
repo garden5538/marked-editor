@@ -1,4 +1,7 @@
 module.exports = {
+    devServer: {
+        port: 8081
+    },
     // 修改 src 目录 为 examples 目录
     pages: {
         index: {
@@ -11,8 +14,9 @@ module.exports = {
     chainWebpack: config => {
         config.module
             .rule('js')
+            .test(/\.js$/)
             .include
-            .add('packages')
+            .add(/packages/)
             .end()
             .use('babel')
             .loader('babel-loader')
