@@ -13,24 +13,37 @@
                         <span v-if="tool.icon === 'title'"
                               class="icon">{{ tool.key }}</span>
                         <i v-else
-                           class="fa"
+                           class="iconfont"
                            :class="tool.icon"></i>
                     </li>
                 </template>
             </ul>
             <ul class='marked-tools-right'>
-                <li class="fa fa-eye"
-                    @click="togglePreview"></li>
-                <li class="fa fa-desktop"
-                    @click="toggleMarkdown"></li>
-                <li class="fa fa-arrows-alt"
-                    @click="toggleFullScreen"></li>
+                <li class="iconfont icon-yulan"
+                    @click="togglePreview"
+                    v-if="showPreview"
+                    name="预览"></li>
+                <li class="iconfont icon-edit"
+                    @click="togglePreview"
+                    v-else
+                    name="编辑"></li>
+                <li class="iconfont icon-double"
+                    @click="toggleDouble"
+                    name="双栏"></li>
+                <li class="iconfont icon-full-screen"
+                    @click="toggleFullScreen"
+                    name="全屏"
+                    v-if="!isFullScreen"></li>
+                <li class="iconfont icon-exit-full"
+                    @click="toggleFullScreen"
+                    name="退出全屏"
+                    v-else></li>
             </ul>
         </header>
         <section class='marked-content'>
             <div class="marked-content-text"
-                 v-show="!showFullPreview">
-                <ul v-if="showNumber"
+                 v-show="isDouble || showPreview">
+                <ul v-if=" showNumber"
                     class="sider-number">
                     <li v-for="(item,index) in numberLength"
                         :key="index">{{ index + 1 }}</li>
@@ -41,7 +54,7 @@
             </div>
             <div class="marked-content-preview markdown-body oneDark"
                  v-html="previewHtml"
-                 v-show="showPreview"></div>
+                 v-show="isDouble || !showPreview"></div>
         </section>
     </div>
 </template>

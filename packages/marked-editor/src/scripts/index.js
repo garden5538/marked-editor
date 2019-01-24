@@ -2,7 +2,7 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 
 import toolsConfig from './tools.config';
-import 'font-awesome/scss/font-awesome.scss';
+import '../fonts/iconfont.css';
 import 'github-markdown-css/github-markdown.css';
 
 marked.setOptions({
@@ -38,6 +38,7 @@ export default {
             toolsRight: toolsConfig.toolsRight,
             allTools: toolsConfig.showTools,
             showPreview: true,
+            isDouble: false,
             showFullPreview: false,
             isFullScreen: false,
             numberLength: 1,
@@ -74,11 +75,12 @@ export default {
         },
         togglePreview() {
             this.showPreview = !this.showPreview;
-            this.showFullPreview = false;
+            if (this.isDouble) {
+                this.isDouble = false;
+            }
         },
-        toggleMarkdown() {
-            this.showFullPreview = !this.showFullPreview;
-            this.showPreview = true;
+        toggleDouble() {
+            this.isDouble = !this.isDouble;
         },
         toggleFullScreen() {
             this.isFullScreen = !this.isFullScreen;
