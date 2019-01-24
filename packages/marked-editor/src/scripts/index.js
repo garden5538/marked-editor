@@ -13,7 +13,7 @@ marked.setOptions({
     pedantic: false,
     sanitize: true,
     smartLists: true,
-    highlight: function(code) {
+    highlight: function (code) {
         return hljs.highlightAuto(code).value;
     }
 });
@@ -23,7 +23,7 @@ export default {
     props: {
         toolBars: { // 工具栏配置
             type: Object,
-            default: function() {
+            default: function () {
                 return {};
             }
         },
@@ -63,7 +63,6 @@ export default {
             this.markText += text;
             const textarea = this.$refs['textarea'];
             textarea.focus();
-            index;
         },
         onTab(e) { // tab按键
             this.insertContent('    ', this);
