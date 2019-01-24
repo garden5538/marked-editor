@@ -13,7 +13,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/zhuangZhou/simple-markdown.git"
+		"url": "git+https://github.com/zhuangZhou/marked-editor.git"
 	},
 	"scripts": {
 		"serve": "vue-cli-service serve",
@@ -23,7 +23,6 @@
 		"lib": "vue-cli-service build --target lib --name marked-editor --dest lib packages/index.js"
 	},
 	"dependencies": {
-		"font-awesome": "^4.7.0",
 		"github-markdown-css": "^2.10.0",
 		"highlight.js": "^9.13.1",
 		"marked": "^0.6.0",

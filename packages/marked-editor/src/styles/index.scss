@@ -8,7 +8,7 @@ $text-mark-size: 16px;
 $border-color: #EAEBED;
 $border: 1px solid $border-color;
 $header-background-color: #F9FAFB;
-$side-background-color: #FFFAFA;
+$side-background-color: #FFF;
 $tools-icon-color:#525252;
 
 $baseFont: 3em;
@@ -76,6 +76,10 @@ $baseFont: 3em;
                 .icon {
                     font-weight: bold;
                 }
+
+                i {
+                    font-size: $tools-icon-size;
+                }
             }
         }
     }
@@ -123,6 +127,7 @@ $baseFont: 3em;
         }
 
         &-preview {
+            background: $side-background-color;
             @include content-padding(10px, 10px);
         }
     }
