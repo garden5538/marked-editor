@@ -73,26 +73,26 @@ export default {
                 e.returnValue = false;
             }
         },
-        togglePreview() {
+        togglePreview() { // 切换预览
             this.showPreview = !this.showPreview;
             if (this.isDouble) {
                 this.isDouble = false;
             }
         },
-        toggleDouble() {
+        toggleDouble() { // 切换双栏
             this.isDouble = !this.isDouble;
         },
-        toggleFullScreen() {
+        toggleFullScreen() { // 切换全屏
             this.isFullScreen = !this.isFullScreen;
         },
         addListener() { // 事件监听，阻止保存
             this.removeListener();
             document.addEventListener('keydown', this.listener);
         },
-        removeListener() {
+        removeListener() { // 移除监听事件
             document.removeEventListener('keydown', this.listener);
         },
-        listener(e) {
+        listener(e) { // 监听ctrl+s按键
             if (e.keyCode === 83) {
                 if (e.metaKey || e.ctrlKey) {
                     e.preventDefault();
@@ -100,7 +100,7 @@ export default {
                 }
             }
         },
-        handleSave() {
+        handleSave() { // 保存
             let query = {
                 markText: this.markText,
                 previewHtml: this.previewHtml
@@ -108,7 +108,7 @@ export default {
 
             this.$emit('saveMarkdown', query);
         },
-        importFile(e) {
+        importFile(e) { // 导入markdown
             const file = e.target.files[0];
             let fileAccept = file.name.match(/\.md$/);
             if (!fileAccept) {
