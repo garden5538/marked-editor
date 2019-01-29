@@ -17,7 +17,8 @@
                            :class="tool.icon"></i>
                     </li>
                 </template>
-                <li v-if="tools['import']" class="absolute-li">
+                <li v-if="tools['import']"
+                    class="absolute-li">
                     <i class="iconfont icon-import"></i>
                     <input ref="fileMarkdown"
                            name="markdown"
@@ -25,7 +26,9 @@
                            accept="text/markdown"
                            @change="importFile">
                 </li>
-                <li v-if="tools['export']" class="absolute-li">
+                <li v-if="tools['export']"
+                    class="absolute-li"
+                    @click="exportFile">
                     <i class="iconfont icon-export"></i>
                 </li>
             </ul>

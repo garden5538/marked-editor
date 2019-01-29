@@ -43,7 +43,8 @@ export default {
             isFullScreen: false,
             numberLength: 1,
             markText: '', // 输入框内容
-            previewHtml: '' // 预览内容
+            previewHtml: '', // 预览内容
+            markNav: [] // 目录
         };
     },
     computed: {
@@ -56,10 +57,30 @@ export default {
             this.previewHtml = marked(val, {
                 sanitize: true
             });
+
             this.numberLength = val.split('\n').length;
         }
     },
     methods: {
+        setNav() {
+            const renderer = new marked.Renderer();
+            let currentL1 = 0;
+            let currentL2 = 0;
+            renderer.heading = (text, level) => {
+                if (level === 1) {
+                    this.markNav.push({ title: text, level, children: [] });
+                    currentL1++;
+                    currentL2 = 0;
+                } else if (level === 2) {
+                    this.markNav[currentL1 - 1].children.push({ title: text, level, children: [] });
+                    currentL2++;
+                } else if (level === 3) {
+                    this.markNav[currentL1 - 1].children[currentL2 - 1].push({ title: text, level });
+                }
+                return this.markNav;
+            };
+            marked(this.markText, { renderer });
+        },
         insertContent(text) { // 插入文本
             this.markText += text;
             const textarea = this.$refs['textarea'];
@@ -123,6 +144,15 @@ export default {
             fr.readAsText(file, {
                 encoding: 'utf-8'
             });
+        }
+        exportFile() { //  导出markdown
+            this.setNav();
+            const fileName = this.markNav[0].title + '.md';
+            const dom = document.createElement('a');
+            dom.setAttribute('href', 'data:text/plain;charset=UTF-8,' + encodeURIComponent(this.markText));
+            dom.setAttribute('download', fileName);
+            dom.style.display = 'none';
+            dom.click();
         }
     }
 };
