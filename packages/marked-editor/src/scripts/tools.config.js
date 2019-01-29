@@ -1,37 +1,37 @@
 const toolsLeft = [{
     label: '标题1',
     key: 'H1',
-    value: '\n# ',
+    value: '# ',
     icon: 'title',
     show: true
 }, {
     label: '标题2',
     key: 'H2',
-    value: '\n## ',
+    value: '## ',
     icon: 'title',
     show: true
 }, {
     label: '标题3',
     key: 'H3',
-    value: '\n### ',
+    value: '### ',
     icon: 'title',
     show: true
 }, {
     label: '标题4',
     key: 'H4',
-    value: '\n#### ',
+    value: '#### ',
     icon: 'title',
     show: true
 }, {
     label: '标题5',
     key: 'H5',
-    value: '\n##### ',
+    value: '##### ',
     icon: 'title',
     show: true
 }, {
     label: '标题6',
     key: 'H6',
-    value: '\n###### ',
+    value: '###### ',
     icon: 'title',
     show: true
 }, {
@@ -109,18 +109,20 @@ const toolsLeft = [{
 }, {
     label: '表格',
     key: 'table',
-    value: '\nheader 1 | header 2\n---|---\nrow 1 col 1 | row 1 col 2\nrow 2 col 1 | row 2 col 2\n\n`',
+    value: '\nheader 1 | header 2\n---|---\nrow 1 col 1 | row 1 col 2\nrow 2 col 1 | row 2 col 2\n\n',
     icon: 'icon-table',
     show: true
 }];
 
 const toolsRight = [{
-    label: '预览',
-    key: 'preview',
+    label: '导出',
+    key: 'export',
+    icon: 'icon-export',
     show: true
 }, {
-    label: '全屏',
-    key: 'fullScreen',
+    label: '导入',
+    key: 'import',
+    icon: 'icon-import',
     show: true
 }];
 

@@ -80,6 +80,24 @@ $baseFont: 3em;
                 i {
                     font-size: $tools-icon-size;
                 }
+
+                &.absolute-li {
+                    position: relative;
+
+                    input {
+                        display: inline-block;
+                        width: $tools-icon-size;
+                        height: $tools-icon-size;
+                        opacity: 0;
+                        cursor: pointer;
+                        position: absolute;
+                        top:0;
+                        left: 0;
+                        z-index: 999;
+                    }
+                }
+
+
             }
         }
     }

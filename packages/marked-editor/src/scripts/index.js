@@ -107,6 +107,22 @@ export default {
             };
 
             this.$emit('saveMarkdown', query);
+        },
+        importFile(e) {
+            const file = e.target.files[0];
+            let fileAccept = file.name.match(/\.md$/);
+            if (!fileAccept) {
+                return false;
+            }
+
+            const fr = new FileReader();
+            const that = this;
+            fr.onload = function () {
+                that.markText = fr.result;
+            };
+            fr.readAsText(file, {
+                encoding: 'utf-8'
+            });
         }
     }
 };
