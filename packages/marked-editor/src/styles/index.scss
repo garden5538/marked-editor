@@ -4,12 +4,15 @@ $header-height: 60px;
 $tools-icon-size: 18px;
 $tools-margin-right: 15px;
 $text-mark-size: 16px;
+$menu-width: 200px;
 
 $border-color: #EAEBED;
 $border: 1px solid $border-color;
 $header-background-color: #F9FAFB;
 $side-background-color: #FFF;
 $tools-icon-color:#525252;
+$hover-color: #409EFF;
+
 
 $baseFont: 3em;
 
@@ -22,6 +25,24 @@ $baseFont: 3em;
     line-height: 30px;
 }
 
+@mixin mark($a:0.3) {
+    background: rgba(0, 0, 0, $a);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin content-header {
+    width: 100%;
+    height: $header-height;
+    background: $header-background-color;
+    border-bottom: $border;
+    @include content-padding(0, 15px);
+    display: flex;
+}
+
 @mixin title-set ($v) {
     padding-bottom: 0.3em;
     font-size: $v;
@@ -31,8 +52,10 @@ $baseFont: 3em;
 
 .marked {
     width: $min-width;
-    min-height: $min-height;
+    height: $min-height;
+    max-height: 100%;
     border: $border;
+    position: relative;
 
     &.fullScreen {
         width: 100%;
@@ -50,12 +73,7 @@ $baseFont: 3em;
     }
 
     &-tools {
-        width: 100%;
-        height: $header-height;
-        background: $header-background-color;
-        border-bottom: $border;
-        @include content-padding(0, 15px);
-        display: flex;
+        @include content-header;
         justify-content: space-between;
 
         ul {
@@ -70,7 +88,7 @@ $baseFont: 3em;
                 color: $tools-icon-color;
 
                 &:hover {
-                    opacity: 0.8;
+                    color: $hover-color;
                 }
 
                 .icon {
@@ -91,7 +109,7 @@ $baseFont: 3em;
                         opacity: 0;
                         cursor: pointer;
                         position: absolute;
-                        top:0;
+                        top: 0;
                         left: 0;
                         z-index: 999;
                     }
@@ -104,12 +122,14 @@ $baseFont: 3em;
 
     &-content {
         width: 100%;
-        min-height: $min-height - $header-height;
+        height: $min-height - $header-height;
+        overflow: hidden;
         display: flex;
 
         div {
             flex: 1;
-            overflow-x: hidden;
+            min-height: 100%;
+            overflow: hidden;
             overflow-y: auto;
         }
 
@@ -124,11 +144,17 @@ $baseFont: 3em;
 
             .sider-number {
                 width: 28px;
+                height: 100%;
+                overflow: hidden;
                 list-style: none;
                 text-align: center;
                 @include line-height;
                 border-right: $border;
                 background: $side-background-color;
+
+                &::-webkit-scrollbar {
+                    width: 0;
+                }
             }
 
             textarea {
@@ -147,6 +173,70 @@ $baseFont: 3em;
         &-preview {
             background: $side-background-color;
             @include content-padding(10px, 10px);
+        }
+    }
+
+    &-menus {
+
+        @include mark;
+
+        div {
+            width: $menu-width;
+            height: 100%;
+            background: $side-background-color;
+
+            header {
+                @include content-header;
+                align-items: center;
+                user-select: none;
+                position: relative;
+
+                i {
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $hover-color;
+                    }
+                }
+            }
+
+            ul {
+
+                @include content-padding(20px, 15px);
+
+                li {
+                    width: 100%;
+
+                    &:hover {
+                        color: $hover-color;
+                    }
+                }
+
+                .title-level-1 {
+                    font-size: 18px;
+                    font-weight: bolder;
+                    list-style: none;
+                }
+
+                .title-level-2 {
+                    font-size: 16px;
+                    list-style: none;
+                    margin: 10px 0;
+                    cursor: pointer;
+                }
+
+                .title-level-3 {
+                    font-size: 14px;
+                    line-height: 1.5em;
+                    list-style-position: inside;
+                    @include content-padding(0, 20px);
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

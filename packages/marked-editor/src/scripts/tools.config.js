@@ -21,19 +21,19 @@ const toolsLeft = [{
     key: 'H4',
     value: '#### ',
     icon: 'title',
-    show: true
+    show: false
 }, {
     label: '标题5',
     key: 'H5',
     value: '##### ',
     icon: 'title',
-    show: true
+    show: false
 }, {
     label: '标题6',
     key: 'H6',
     value: '###### ',
     icon: 'title',
-    show: true
+    show: false
 }, {
     label: '粗体',
     key: 'strong',
@@ -57,7 +57,7 @@ const toolsLeft = [{
     key: 'hr',
     value: '----\n',
     icon: 'icon-hr',
-    show: true
+    show: false
 }, {
     label: '引用',
     key: 'quote',
@@ -69,13 +69,13 @@ const toolsLeft = [{
     key: 'ul',
     value: '\n+ ',
     icon: 'icon-list-ul',
-    show: true
+    show: false
 }, {
     label: '有序列表',
     key: 'ol',
     value: '\n1. ',
     icon: 'icon-list-ol',
-    show: true
+    show: false
 }, {
     label: '代码块',
     key: 'code',
@@ -123,6 +123,11 @@ const toolsRight = [{
     label: '导入',
     key: 'import',
     icon: 'icon-import',
+    show: true
+}, {
+    label: '目录',
+    key: 'menu',
+    icon: 'icon-menu-right',
     show: true
 }];
 

@@ -6,7 +6,13 @@
 
 ## 安装
 
-> npm i marked-editor
+```bash
+ npm i marked-editor
+
+ //or
+
+ yarn add marked-editor
+```
 
 ## 功能列表
 
@@ -27,13 +33,23 @@
 - 视图切换
   - [x] 切换预览
   - [x] 切换全屏
+  - [x] 目录切换 
 - 快捷键
   - [x] ctrl+s 保存
   - [x] tab 制表符
+- 其他功能
+  - [x] 导入markdown文档
+  - [x] 导出当前文档 
 
 ## 更新说明
 
 > 后续功能持续开发中。。。
+
++ v1.0.0
+  + 增加对markdown文档的导入和导出
+  + 增加文档目录以及显示隐藏
+  + 增加文档的同时滚动
+  + 优化样式
 
 + v0.1.2
   + 引入iconfont，移除font Awesome

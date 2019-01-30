@@ -37,10 +37,12 @@ export default {
             toolsLeft: toolsConfig.toolsLeft,
             toolsRight: toolsConfig.toolsRight,
             allTools: toolsConfig.showTools,
+            showMenu: false,
             showPreview: true,
-            isDouble: false,
+            isDouble: true,
             showFullPreview: false,
             isFullScreen: false,
+            isScrollMark: true,
             numberLength: 1,
             markText: '', // 输入框内容
             previewHtml: '', // 预览内容
@@ -62,22 +64,16 @@ export default {
         }
     },
     methods: {
+        // 切换目录
+        toggleMenu() {
+            this.setNav();
+            this.showMenu = true;
+        },
         setNav() {
             const renderer = new marked.Renderer();
-            let currentL1 = 0;
-            let currentL2 = 0;
+            this.markNav = [];
             renderer.heading = (text, level) => {
-                if (level === 1) {
-                    this.markNav.push({ title: text, level, children: [] });
-                    currentL1++;
-                    currentL2 = 0;
-                } else if (level === 2) {
-                    this.markNav[currentL1 - 1].children.push({ title: text, level, children: [] });
-                    currentL2++;
-                } else if (level === 3) {
-                    this.markNav[currentL1 - 1].children[currentL2 - 1].push({ title: text, level });
-                }
-                return this.markNav;
+                return this.markNav.push({ title: text, level });
             };
             marked(this.markText, { renderer });
         },
@@ -144,7 +140,7 @@ export default {
             fr.readAsText(file, {
                 encoding: 'utf-8'
             });
-        }
+        },
         exportFile() { //  导出markdown
             this.setNav();
             const fileName = this.markNav[0].title + '.md';
@@ -153,6 +149,17 @@ export default {
             dom.setAttribute('download', fileName);
             dom.style.display = 'none';
             dom.click();
+        },
+        contentScroll() {
+            const textarea = this.$refs.textarea;
+            const preview = this.$refs.preview;
+
+            if (this.isScrollMark) {
+                preview.scrollTop = parseInt((textarea.scrollTop / textarea.scrollHeight) * preview.scrollHeight);
+            } else {
+                textarea.scrollTop = parseInt((preview.scrollTop / preview.scrollHeight) * textarea.scrollHeight);
+            }
+            this.$refs.textIndex.scrollTop = textarea.scrollTop;
         }
     }
 };
