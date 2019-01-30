@@ -120,7 +120,8 @@ export default {
         handleSave() { // 保存
             let query = {
                 markText: this.markText,
-                previewHtml: this.previewHtml
+                previewHtml: this.previewHtml,
+                menus: this.markNav
             };
 
             this.$emit('saveMarkdown', query);
@@ -150,7 +151,7 @@ export default {
             dom.style.display = 'none';
             dom.click();
         },
-        contentScroll() {
+        contentScroll() { // 视图滚动
             const textarea = this.$refs.textarea;
             const preview = this.$refs.preview;
 
