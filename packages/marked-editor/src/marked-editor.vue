@@ -93,7 +93,8 @@
                 <ul class="marked-menu-list">
                     <li v-for="menu in markNav"
                         :key="menu.title"
-                        :class="'title-level-'+menu.level">
+                        :class="'title-level-'+menu.level"
+                        @click="toCurrentTitle(menu.title)">
                         {{ menu.title }}
                     </li>
                 </ul>

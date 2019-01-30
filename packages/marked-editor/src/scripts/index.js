@@ -161,6 +161,12 @@ export default {
                 textarea.scrollTop = parseInt((preview.scrollTop / preview.scrollHeight) * textarea.scrollHeight);
             }
             this.$refs.textIndex.scrollTop = textarea.scrollTop;
+        },
+        toCurrentTitle(title) { // 点击目录，视图滑动到当前位置
+            const preview = this.$refs.preview;
+            const currentDom = preview.querySelector('#' + title);
+            this.isScrollMark = false;
+            preview.scrollTop = currentDom.offsetTop - currentDom.offsetHeight - preview.offsetTop;
         }
     }
 };
