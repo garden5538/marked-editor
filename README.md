@@ -2,9 +2,11 @@
 
 ## 简介
 
-这是一款基于Vue打造的Markdown编辑器；该款编辑器涵盖了markdown编辑器的常用功能，并且支持可配置；
+这是一款基于Vue打造的Markdown编辑器插件；该款编辑器涵盖了markdown编辑器的常用功能，并且支持可配置；
 
-## 安装
+## 安装与使用
+
+### 安装
 
 ```bash
  npm i marked-editor
@@ -12,6 +14,31 @@
  //or
 
  yarn add marked-editor
+```
+
+### 使用
+
+安装后，首先，在项目中引入marked-editor插件；
+
+```js
+import Vue from 'vue';
+import markedEditor from 'marked-editor';
+
+Vue.use(markedEditor);
+...
+
+```
+
+然后，在页面中使用：
+
+```html
+
+<template>
+    <div>
+        <marked-editor></marked-editor>
+    </div>
+</template>
+
 ```
 
 ## 功能列表
@@ -44,6 +71,9 @@
 ## 更新说明
 
 > 后续功能持续开发中。。。
+
++ v1.0.1
+  + 增加目录点击，视图滑动到相应位置
 
 + v1.0.0
   + 增加对markdown文档的导入和导出
